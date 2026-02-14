@@ -3,12 +3,11 @@ import { AppBar, Toolbar, Typography, Button, Stack } from "@mui/material";
 
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
-import PublicVehiclesPage from "./pages/PublicReservationsPage";
+import PublicReservationsPage from "./pages/PublicReservationsPage";
 import LoginPage from "./pages/LoginPage";
 
 import AdminHomePage from "./pages/AdminHomePage";
-import AdminMarcasPage from "./pages/AdminShowsPage";
-import AdminVehiculosPage from "./pages/AdminVehiculosPage";
+import AdminShowsPage from "./pages/AdminShowsPage";
 
 import RequireAuth from "./components/RequireAuth";
 
@@ -34,7 +33,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/acerca" element={<AboutPage />} />
-        <Route path="/lista" element={<PublicVehiclesPage />} />
+        <Route path="/lista" element={<PublicReservationsPage />} />
         <Route path="/login" element={<LoginPage />} />
 
         <Route
@@ -47,22 +46,14 @@ export default function App() {
         />
 
         <Route
-          path="/admin/marcas"
+          path="/admin/shows"
           element={
             <RequireAuth>
-              <AdminMarcasPage />
+              <AdminShowsPage />
             </RequireAuth>
           }
         />
 
-        <Route
-          path="/admin/vehiculos"
-          element={
-            <RequireAuth>
-              <AdminVehiculosPage />
-            </RequireAuth>
-          }
-        />
 
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
